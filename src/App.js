@@ -1,12 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 // eslint-disable-next-line
 const apiWeatKey = {
   key: "ecafc943dd32c2ba10f8bbf388da6aab",
-  base: "https://api.openweathermap.org/data/2.5/"
+  base: "http://api.openweathermap.org/data/2.5/"
 }
 
 function App() {
+
+  const [query, setQuery] = useState('');
+  const [weather, setWeather] = useState({});
+
+  const search = evt => {
+    if (evt.key === "Enter") {
+      console.log('Query is ' + query);
+      console.log('base is ' + apiWeatKey.base);
+      console.log('app id is ' + apiWeatKey.key);
+      // api.openweathermap.org/data/2.5/weather?q=Dublin&units=metric&APPID=ecafc943dd32c2ba10f8bbf388da6aab
+      fetch(`${apiWeatKey.base}weather?q=${query}&units=metric&APPID=${apiWeatKey.key}`)
+        .then(res => res.json())
+        .then(result => {
+          setWeather(result);
+          setQuery('');
+          console.log(result);
+        });
+    }
+  }
 
   const dateBuilder = (d) => {
     console.log('Date is ' + d);
@@ -33,16 +52,23 @@ function App() {
             type="text"
             className="search-bar"
             placeholder="Search..."
+            onChange={e => setQuery(e.target.value)}
+            value={query}
+            onKeyPress={search}
             />
         </div>
+        {(typeof weather.main != "undefined") ? (
+          <div>
         <div className="location-box">
-          <div className="location">Helsinki, Finland</div>
+              <div className="location">{weather.name}, {weather.sys.country}</div>
           <div className="weather-date">{dateBuilder(new Date())}</div>
         </div>
         <div className="weather-box">
-          <div className="temperature">15 C</div>
-          <div className="weatherDesc">Sunny</div>
-        </div>
+              <div className="temperature">{Math.round( weather.main.temp )}°c</div>
+              <div className="weatherDesc">{weather.weather[0].main}</div>
+            </div>
+            </div>
+          ) : ('')}
       </main>
     </div>
   );
