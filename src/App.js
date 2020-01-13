@@ -1,5 +1,6 @@
 import React from 'react';
 
+// eslint-disable-next-line
 const apiWeatKey = {
   key: "ecafc943dd32c2ba10f8bbf388da6aab",
   base: "https://api.openweathermap.org/data/2.5/"
@@ -17,7 +18,6 @@ function App() {
             />
         </div>
       </main>
-Noptimists rule.
     </div>
   );
 }
