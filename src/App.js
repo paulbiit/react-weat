@@ -44,6 +44,16 @@ function App() {
     return `${wday} ${wdate} ${wmonth} ${wyear}`
 }
 
+  //Check if browser supports W3C Geolocation API
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+} 
+//Get latitude and longitude;
+function successFunction(position) {
+  var lat = position.coords.latitude;
+  var long = position.coords.longitude;
+}
+
   return (
     <div className={
       (typeof weather.main != "undefined") ?
@@ -55,7 +65,7 @@ function App() {
           <input
             type="text"
             className="search-bar"
-            placeholder="Enter a location..."
+            placeholder="Enter a location 21..."
             onChange={e => setQuery(e.target.value)}
             value={query}
             onKeyPress={search}
