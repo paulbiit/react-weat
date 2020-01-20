@@ -77,6 +77,9 @@ function App() {
         ) : ('')}
         {(typeof weather1.main != "undefined") ? (
           <div>
+            <p></p>
+            <hr></hr>
+            <p></p>
         <div className="location-box">
               <div className="location">{weather1.name}, {weather1.sys.country}</div>
           <div className="weather-date">{dateBuilder(new Date())}</div>
