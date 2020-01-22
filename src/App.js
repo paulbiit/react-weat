@@ -47,12 +47,23 @@ function App() {
 }
 
   return (
+    <div className="Navigation">
+      <nav className="nav-main">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Assets</a></li>
+          <li><a href="#">Service</a></li>
+          <li><a href="#">Support</a></li>
+        </ul>
+      </nav>
+    </div>
     <div className={
       (typeof weather.main != "undefined") ?
         ((weather.main.temp < 16) ?
         "App winter" :
   "App") : "App"} >
       <main>
+
         <div className="search-box">
           <input
             type="text"
@@ -63,11 +74,14 @@ function App() {
             onKeyPress={search}
             />
         </div>
-        <div class="version">
+        <div className="version">
           <h3>Version 0.001</h3>
         </div> 
+
+
+
         {(typeof weather.main != "undefined") ? (
-          <div>
+          <div className="weatherSection">
         <div className="location-box">
               <div className="location">{weather.name}, {weather.sys.country}</div>
           <div className="weather-date">{dateBuilder(new Date())}</div>
@@ -79,7 +93,7 @@ function App() {
             </div>
         ) : ('')}
         {(typeof weather1.main != "undefined") ? (
-          <div>
+          <div className="weatherSection1">
             <p></p>
             <p></p>
         <div className="location-box">
@@ -91,7 +105,10 @@ function App() {
               <div className="weatherDesc">{weather1.weather[0].description}</div>
             </div>
             </div>
-          ) : ('')}
+        ) : ('')}
+        
+
+
       </main>
     </div>
   );
