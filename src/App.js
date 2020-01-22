@@ -1,4 +1,6 @@
-import React, {useState} from 'react';
+import React, {
+  useState
+} from 'react';
 
 // eslint-disable-next-line
 const apiWeatKey = {
@@ -32,10 +34,12 @@ function App() {
   const dateBuilder = (d) => {
     console.log('Date is ' + d);
     let months = ["January", "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December"];
+      "July", "August", "September", "October", "November", "December"
+    ];
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
-      "Friday", "Saturday"];
-    
+      "Friday", "Saturday"
+    ];
+
     let wday = days[d.getDay()];
     let wdate = d.getDate();
 
@@ -44,54 +48,93 @@ function App() {
 
     // eslint-disable-next-line no-template-curly-in-string
     return `${wday} ${wdate} ${wmonth} ${wyear}`
-}
+  }
 
-  return (
-    <div className={
+  return ( <
+    div className = {
       (typeof weather.main != "undefined") ?
-        ((weather.main.temp < 16) ?
+      ((weather.main.temp < 16) ?
         "App winter" :
-  "App") : "App"} >
-      <main>
-        <div className="search-box">
-          <input
-            type="text"
-            className="search-bar"
-            placeholder="Enter a location..."
-            onChange={e => setQuery(e.target.value)}
-            value={query}
-            onKeyPress={search}
-            />
-        </div>
-        {(typeof weather.main != "undefined") ? (
-          <div>
-        <div className="location-box">
-              <div className="location">{weather.name}, {weather.sys.country}</div>
-          <div className="weather-date">{dateBuilder(new Date())}</div>
-        </div>
-        <div className="weather-box">
-              <div className="temperature">{Math.round( weather.main.temp )}°c</div>
-              <div className="weatherDesc">{weather.weather[0].description}</div>
-            </div>
-            </div>
-        ) : ('')}
-        {(typeof weather1.main != "undefined") ? (
-          <div>
-            <p></p>
-            <hr></hr>
-            <p></p>
-        <div className="location-box">
-              <div className="location">{weather1.name}, {weather1.sys.country}</div>
-          <div className="weather-date">{dateBuilder(new Date())}</div>
-        </div>
-        <div className="weather-box">
-              <div className="temperature">{Math.round( weather1.main.temp )}°c</div>
-              <div className="weatherDesc">{weather1.weather[0].description}</div>
-            </div>
-            </div>
-          ) : ('')}
-      </main>
-    </div>
+        "App") : "App"
+    } >
+    <
+    main >
+    <
+    div className = "search-box" >
+    <
+    input type = "text"
+    className = "search-bar"
+    placeholder = "Enter a location..."
+    onChange = {
+      e => setQuery(e.target.value)
+    }
+    value = {
+      query
+    }
+    onKeyPress = {
+      search
+    }
+    /> <
+    /div> {
+      (typeof weather.main != "undefined") ? ( <
+        div >
+        <
+        div className = "location-box" >
+        <
+        div className = "location" > {
+          weather.name
+        }, {
+          weather.sys.country
+        } < /div> <
+        div className = "weather-date" > {
+          dateBuilder(new Date())
+        } < /div> <
+        /div> <
+        div className = "weather-box" >
+        <
+        div className = "temperature" > {
+          Math.round(weather.main.temp)
+        }°
+        c < /div> <
+        div className = "weatherDesc" > {
+          weather.weather[0].description
+        } < /div> <
+        /div> <
+        /div>
+      ) : ('')
+    } {
+      (typeof weather1.main != "undefined") ? ( <
+        div >
+        <
+        p > < /p> <
+        hr > < /hr> <
+        p > < /p> <
+        div className = "location-box" >
+        <
+        div className = "location" > {
+          weather1.name
+        }, {
+          weather1.sys.country
+        } < /div> <
+        div className = "weather-date" > {
+          dateBuilder(new Date())
+        } < /div> <
+        /div> <
+        div className = "weather-box" >
+        <
+        div className = "temperature" > {
+          Math.round(weather1.main.temp)
+        }°
+        c < /div> <
+        div className = "weatherDesc" > {
+          weather1.weather[0].description
+        } < /div> <
+        /div> <
+        /div>
+      ) : ('')
+    } <
+    /main> <
+    /div>
   );
 }
 
