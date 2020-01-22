@@ -47,7 +47,13 @@ function App() {
 }
 
   return (
-    <div className="Navigation">
+    <div className={
+      (typeof weather.main != "undefined") ?
+        ((weather.main.temp < 16) ?
+        "App winter" :
+  "App") : "App"} >
+      <main>
+      <div className="Navigation">
       <nav className="nav-main">
         <ul>
           <li><a href="#">Home</a></li>
@@ -56,14 +62,8 @@ function App() {
           <li><a href="#">Support</a></li>
         </ul>
       </nav>
-    </div>
-    <div className={
-      (typeof weather.main != "undefined") ?
-        ((weather.main.temp < 16) ?
-        "App winter" :
-  "App") : "App"} >
-      <main>
-
+        </div>
+        
         <div className="search-box">
           <input
             type="text"
