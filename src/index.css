@@ -10,13 +10,17 @@ body {
 
 .App {
   background-size: cover;
-  background-image: url('./assets/summer.jpg');
+  background-image: url('./assets/summer1.jpg');
   background-position: bottom;
   transition: 0.4s ease-out;
 }
 
 .App.winter {
   background-image: url('./assets/winter.jpg');
+}
+
+.App.spring {
+  background-image: url('./assets/spring.jpg');
 }
 
 main {
