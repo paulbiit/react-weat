@@ -59,11 +59,12 @@ function App() {
           <li><a href="#">Home</a></li>
           <li><a href="#">Assets</a></li>
           <li><a href="#">Service</a></li>
-          <li><a href="#">Support</a></li>
+              <li><a href="#">Support</a></li>
+              
         </ul>
       </nav>
         </div>
-        
+        <section className="top-container">
         <div className="search-box">
           <input
             type="text"
@@ -75,7 +76,7 @@ function App() {
             />
         </div>
         <div className="version">
-          <h3>Version 0.001</h3>
+          <h3>Version 0.002</h3>
         </div> 
 
 
@@ -107,6 +108,14 @@ function App() {
             </div>
         ) : ('')}
         
+        </section>
+
+        <section className="data-container">
+          <header className="data-pres">
+          <h1>Another section</h1>
+          <p>Some text here</p>
+            </header>
+        </section>
 
 
       </main>
