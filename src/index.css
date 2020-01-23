@@ -106,3 +106,9 @@ main {
   font-weight: 700;
   text-shadow: 3px 6px rgba(50,50,70,0.5);
 }
+
+.h3{
+  font-size: 48px;
+  color: #ffffff;
+  font-weight: 700;
+}

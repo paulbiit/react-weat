@@ -56,8 +56,18 @@ function App() {
   "App") : "App"} >
       <main>
 
+        <div className="search-box">
+          <input
+            type="text"
+            className="search-bar"
+            placeholder="Enter a location..."
+            onChange={e => setQuery(e.target.value)}
+            value={query}
+            onKeyPress={search}
+            />
+        </div>
         <div className="version">
-          <h3 color="white">Version 0.003</h3>
+          <h3>Version 0.005</h3>
         </div> 
 
 
@@ -88,6 +98,8 @@ function App() {
             </div>
             </div>
         ) : ('')}
+      
+
 
       </main>
     </div>
