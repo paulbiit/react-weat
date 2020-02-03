@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 // eslint-disable-next-line
 const apiWeatKey = {
   key: "ecafc943dd32c2ba10f8bbf388da6aab",
-  base: "https://api.openweathermap.org/data/2.5/"
+  base: "https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/"
 }
 
 function App() {
@@ -67,7 +67,7 @@ function App() {
             />
         </div>
         <div className="version">
-          <h3>Version 0.006</h3>
+          <h3>Version 0.007</h3>
         </div> 
 
 
